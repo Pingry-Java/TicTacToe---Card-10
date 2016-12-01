@@ -55,6 +55,7 @@ public class TicTacToe
 	   
 	}
 	   
+	
 	/**
 	* Takes in the board and checks if there is a winner
 	* @param board The tic tac toe board being searched
@@ -62,34 +63,68 @@ public class TicTacToe
 	*/
 	public static boolean checkWinner(int[][] board)
 	{
-	    
+		if (checkDiag(board) == true || checkVert(board) == true || 
+		checkRevDiag(board) == true || checkDiag(board) == true)
+			return true;
+		return false;
 	}
 	
-	public static boolean checkDiag()
+	/**
+	
+	*/
+	public static boolean checkDiag(int[][] board)
+	
 	
 	/**
 	
 	*/
-	public static boolean checkReverseDiag()
+	public static boolean checkRevDiag(int[][] board)
 	
+
 	/**
-	
+	* This method checks each row to see if there is a winner in any of the columns
+	* @param board The game board
+	* @return Return if there is an entire column matching, indicating a winner
 	*/
-	public static boolean checkVert()
+	public static boolean checkVert(int[][] board)
+	{
+		int col = 0;
+		while col < board.length:
+		{
+			if checkOneVert(board, col) == true:
+				return true;
+			col += 1;
+		}
+		return false;
+	}
+
+	/**
+	* This method checks if a specific column matches
+	* @param board The current game board
+	* @param col The current column being checked
+	* @return Return if the column matches
+	*/
+	public static boolean checkOneVert(int[][] board, int col)
+	{
+		int row = 0;
+		while row < (board.length - 1):
+		{
+			if (board[col][row] != board[col][row + 1])
+				return false;
+			row += 1;
+		}
+		return true;
+	}
 
 	/**
 	
 	*/
-	public static boolean checkOneVert()
+	public static boolean checkHoriz(int[][] board)
 	
+
 	/**
 	
 	*/
-	public static boolean checkHoriz()
-	
-	/**
-	
-	*/
-	public static boolean checkOneHoriz()
+	public static boolean checkOneHoriz(int[][] board)
 	
 }
