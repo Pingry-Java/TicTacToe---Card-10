@@ -7,8 +7,9 @@ public class TicTacToe
 	 * This method initializes the board and returns that 2D array
 	 * @return 2D array filled with "spots" on the tic tac toe board
 	 */ 
-	public static int[][] initializeBoard()
-	{
+
+	 public static int[][] initializeBoard()
+	 {
         int[][] grid = new int[3][3];
         int counter = 1;
         for(int[] row: grid)
@@ -19,8 +20,8 @@ public class TicTacToe
                 ++counter;
             }
         }
-        return grid;	 
-	}
+        return grid;   
+	 }
 	 
 	 /**
 	  * Prints the tic tac toe board in a nicely formatted grid
