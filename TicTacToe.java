@@ -8,6 +8,18 @@ public class TicTacToe
 	 */ 
 	 public static int[][] initializeBoard()
 	 {
+        int[][] grid = new int[3][3];
+        int counter = 1;
+        for(int[] row: grid)
+        {
+            for(int n = 0; n < row.length; n++)
+            {
+                row[n] = counter;
+                ++counter;
+            }
+        }
+        return grid;
+         
 	 
 	 }
 	 
