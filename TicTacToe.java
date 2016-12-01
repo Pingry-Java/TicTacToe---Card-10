@@ -1,14 +1,25 @@
 import java.util.Scanner; 
 
 public class TicTacToe
-{
+{	
+	
 	/**
 	 * This method initializes the board and returns that 2D array
 	 * @return 2D array filled with "spots" on the tic tac toe board
 	 */ 
 	public static int[][] initializeBoard()
 	{
-	 
+        int[][] grid = new int[3][3];
+        int counter = 1;
+        for(int[] row: grid)
+        {
+            for(int n = 0; n < row.length; n++)
+            {
+                row[n] = counter;
+                ++counter;
+            }
+        }
+        return grid;	 
 	}
 	 
 	 /**
@@ -52,5 +63,32 @@ public class TicTacToe
 	{
 	    
 	}
+	
+	public static boolean checkDiag()
+	
+	/**
+	
+	*/
+	public static boolean checkReverseDiag()
+	
+	/**
+	
+	*/
+	public static boolean checkVert()
 
+	/**
+	
+	*/
+	public static boolean checkOneVert()
+	
+	/**
+	
+	*/
+	public static boolean checkHoriz()
+	
+	/**
+	
+	*/
+	public static boolean checkOneHoriz()
+	
 }
