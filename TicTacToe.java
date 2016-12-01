@@ -52,6 +52,20 @@ public class TicTacToe
 	   */
 	public static int[][] placeSymbol(int[][] grid, String symbol)
 	{
+        Scanner keyboard = new Scanner(System.in);
+        String userinput = keyboard.nextLine();
+        int point = Integer.parseInt(userinput);
+        int userSymbol = Integer.parseInt(symbol);
+        for(int[] row: grid)
+        {
+            for(int n = 0; n < row.length; n++)
+            {
+                if (point = n)
+                    row[n] = userSymbol
+                ++counter;
+            }
+        }
+        return grid;
 	   
 	}
 	   
