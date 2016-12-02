@@ -75,6 +75,7 @@ public class TicTacToe
 	* @param board The tic tac toe board being searched
 	* @return Boolean value true for win and false for no win
 	*/
+
 	public static boolean checkWinner(int[][] board)
 	{
 		if (checkDiag(board) == true || checkVert(board) == true || 
@@ -87,13 +88,33 @@ public class TicTacToe
 	
 	*/
 	public static boolean checkDiag(int[][] board)
-	
+	{
+		int index = 0;
+		while (index < board.length)
+		{
+			if (board[index][index] != board[index+1][index+1])
+				return false;
+			index += 1;
+		}
+		return true;
+	}
 	
 	/**
 	
 	*/
 	public static boolean checkRevDiag(int[][] board)
-	
+	{
+		index = 0
+		index2 = board.length-1 
+		while index < board.length-1:
+		{
+			if (board[index][index2] != board[index+1][index2-1])
+				return false;
+			index += 1;
+			index2 -= 1;
+		}
+		return true;
+	}
 
 	/**
 	* This method checks each row to see if there is a winner in any of the columns
@@ -134,11 +155,17 @@ public class TicTacToe
 	
 	*/
 	public static boolean checkHoriz(int[][] board)
-	
 
-	/**
-	
-	*/
-	public static boolean checkOneHoriz(int[][] board)
-	
+	{
+		for (int row = 0; row < board.length; row++)
+		{
+			for (int col = 0; col < board[row].length; col++)
+			{
+				if (board[row][col] == board[row][col + 1]) && if (board[row][col] == board[row][col + 2])
+					return true;
+				else 
+					return false;
+			}
+		}
+	}
 }
