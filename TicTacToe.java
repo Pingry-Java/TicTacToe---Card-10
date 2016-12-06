@@ -27,7 +27,9 @@ public class TicTacToe
 				if (turns % 2 == 0)
 					System.out.println("Player 1, you win!!"); 
 				else
+					
 					System.out.println("Player 2, you win!!"); 
+				break; 
 			}
 			turns++; 
 		}
@@ -86,16 +88,14 @@ public class TicTacToe
         String userinput = keyboard.nextLine();
         //This is the location
         int point = Integer.parseInt(userinput);
+        point--; 
         int userSymbol = Integer.parseInt(symbol);
         
-        for(int[] row : grid)
-        {
-            for(int n = 0; n < row.length; n++)
-            {
-                if (point == n)
-                    row[n] = userSymbol;
-            }
-        }
+        int column = point % 3;
+        int row = point / 3; 
+        
+        grid[row][column] = userSymbol;
+        
         return grid;
 	   
 	}
@@ -152,51 +152,33 @@ public class TicTacToe
 	* @param board The game board
 	* @return Return if there is an entire column matching, indicating a winner
 	*/
-	public static boolean checkVert(int[][] board)
+	public static boolean checkVert(int[][] grid)
 	{
-		int col = 0;
-		while (col < board.length)
-		{
-			if (checkOneVert(board, col))
+		int sum = 0; 
+		for (int column = 0; column < grid.length; column++){
+			int value = grid[0][column];
+			for (int row = 0; row < grid.length; row++){
+				if (grid[row][column] == (value))
+			 	 	sum++;
+			}
+			if (sum == grid.length)
 				return true;
-			col += 1;
+			sum = 0;
 		}
-		return false;
+		return false; 
 	}
 
-	/**
-	* This method checks if a specific column matches
-	* @param board The current game board
-	* @param col The current column being checked
-	* @return Return if the column matches
-	*/
-	public static boolean checkOneVert(int[][] board, int col)
-	{
-		int row = 0;
-		while (row < (board.length - 1))
-		{
-			if (board[col][row] != board[col][row + 1])
-				return false;
-			row += 1;
-		}
-		return true;
-	}
 
 	/**
 	
 	*/
 	public static boolean checkHoriz(int[][] board)
-
 	{
+		int col = 0; 
 		for (int row = 0; row < board.length; row++)
 		{
-			for (int col = 0; col < board[row].length; col++)
-			{
-				if ((board[row][col] == board[row][col + 1]) && (board[row][col] == board[row][col + 2]))
-					return true;
-				else 
-					return false;
-			}
+			if ((board[row][col] == board[row][col + 1]) && (board[row][col] == board[row][col + 2]))
+				return true;
 		}
 		return false; 
 	}
