@@ -5,10 +5,11 @@ public class TicTacToe
 	
 	public static void main(String[] args)
 	{
+		System.out.println("WELCOME TO INT ARRAY TIC TAC TOE");
 		int turns = 0; 
 		int[][] grid = initializeBoard(); 
 		System.out.println("Player 1, your symbol is 0. Player 2, your symbol is -1.");
-		while (turns < 9 || checkWinner(grid) == false)
+		while (turns < 9 &&  checkWinner(grid) == false)
 		{
 			printGrid(grid); 
 			if (turns % 2 == 0)
@@ -31,8 +32,12 @@ public class TicTacToe
 					System.out.println("Player 2, you win!!"); 
 				break; 
 			}
-			turns++; 
+			
+			turns++; 	
 		}
+		
+			if (turns == 9)
+				System.out.println("No winner.");
 	}
 	
 	/**
@@ -109,8 +114,7 @@ public class TicTacToe
 
 	public static boolean checkWinner(int[][] board)
 	{
-		if (checkDiag(board) == true || checkVert(board) == true || 
-		checkRevDiag(board) == true || checkDiag(board) == true)
+		if (checkDiag(board) == true || checkVert(board) == true || checkRevDiag(board) == true || checkDiag(board) == true || checkHoriz(board) == true)
 			return true;
 		return false;
 	}
@@ -118,10 +122,10 @@ public class TicTacToe
 	/**
 	
 	*/
-	public static boolean checkDiag(int[][] board)
+	public static boolean checkDiag(int[][] board) //works
 	{
 		int index = 0;
-		while (index < board.length)
+		while (index < board.length-1)
 		{
 			if (board[index][index] != board[index+1][index+1])
 				return false;
@@ -152,7 +156,7 @@ public class TicTacToe
 	* @param board The game board
 	* @return Return if there is an entire column matching, indicating a winner
 	*/
-	public static boolean checkVert(int[][] grid)
+	public static boolean checkVert(int[][] grid) //works
 	{
 		int sum = 0; 
 		for (int column = 0; column < grid.length; column++){
@@ -172,14 +176,21 @@ public class TicTacToe
 	/**
 	
 	*/
-	public static boolean checkHoriz(int[][] board)
+	public static boolean checkHoriz(int[][] grid)
 	{
-		int col = 0; 
-		for (int row = 0; row < board.length; row++)
-		{
-			if ((board[row][col] == board[row][col + 1]) && (board[row][col] == board[row][col + 2]))
+		int sum = 0; 
+		for (int row = 0; row < grid.length; row++){
+			int value = grid[row][0];
+			for (int column = 0; column < grid.length; column++){
+				if (grid[row][column] == (value))
+			 	 	sum++;
+			}
+			if (sum == grid.length)
 				return true;
+			sum = 0;
 		}
 		return false; 
+
+
 	}
 }
