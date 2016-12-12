@@ -25,6 +25,7 @@ public class TicTacToe
 			
 			if (checkWinner(grid))
 			{
+				printGrid(grid); 
 				if (turns % 2 == 0)
 					System.out.println("Player 1, you win!!"); 
 				else
@@ -37,8 +38,14 @@ public class TicTacToe
 		}
 		
 			if (turns == 9)
+			{
+				printGrid(grid); 
 				System.out.println("No winner.");
+			}
 	}
+	
+	/**
+	 * Checks if a spot has already been chosen using indices stored in an array
 	
 	/**
 	 * This method initializes the board and returns that 2D array
@@ -83,13 +90,15 @@ public class TicTacToe
 	  
 	  /**
 	   * Places the player's symbol in the 2D array board
+	   * Also checks if that spot has already been chosen
 	   * @param grid The tic tac toe board
 	   * @param symbol The symbol of the player that is up
 	   * @return The updated tic tac toe board
 	   */
 	public static int[][] placeSymbol(int[][] grid, String symbol)
 	{
-        Scanner keyboard = new Scanner(System.in);
+       boolean alreadyChosen = true; 
+       	Scanner keyboard = new Scanner(System.in);
         String userinput = keyboard.nextLine();
         //This is the location
         int point = Integer.parseInt(userinput);
@@ -99,6 +108,17 @@ public class TicTacToe
         int column = point % 3;
         int row = point / 3; 
         
+        //Check to make sure haven't already used that spot on the board
+        while (grid[row][column] < 1)
+        {
+        	System.out.println("That spot has already been chosen. Please pick another: ");
+        	userinput = keyboard.nextLine(); 
+        	point = Integer.parseInt(userinput); 
+        	point--; 
+        	column = point % 3; 
+        	row = point / 3;
+        	
+        }
         grid[row][column] = userSymbol;
         
         return grid;
