@@ -1,8 +1,17 @@
 import java.util.Scanner; 
 
+/**
+ * This class implements Tic Tac Toe
+ * @author Drew, Lindsey, Will (other people who didn't write javadoc for all the methods)
+ * @version 1.0
+ */
 public class TicTacToe
 {	
 	
+	/**
+	 * Calls helper methods to carry out Tic Tac Toe game
+	 * @param args User line input
+	 */
 	public static void main(String[] args)
 	{
 		System.out.println("WELCOME TO INT ARRAY TIC TAC TOE");
@@ -44,8 +53,6 @@ public class TicTacToe
 			}
 	}
 	
-	/**
-	 * Checks if a spot has already been chosen using indices stored in an array
 	
 	/**
 	 * This method initializes the board and returns that 2D array
@@ -140,9 +147,11 @@ public class TicTacToe
 	}
 	
 	/**
-	
+	 * Method checks if there is a winner because of 3 in a row on a diagonal
+	 * @param board The tic tac toe grid
+	 * @return A boolean true for if diagonal winner and false for if no diagonal winner
 	*/
-	public static boolean checkDiag(int[][] board) //works
+	public static boolean checkDiag(int[][] board) 
 	{
 		int index = 0;
 		while (index < board.length-1)
@@ -155,7 +164,9 @@ public class TicTacToe
 	}
 	
 	/**
-	
+	 * Checks if there is a winner because of 3 in a row on a backwards diagonal
+	 * @param board The tic tac toe grid
+	 * @return A boolean, true for if diagonal winner and false for if no diagonal winner
 	*/
 	public static boolean checkRevDiag(int[][] board)
 	{
@@ -194,7 +205,9 @@ public class TicTacToe
 
 
 	/**
-	
+	 * Checks if there is a winner based on 3 in a row horizontally 
+	 * @grid The tic tac toe board
+	 * @return A boolean, true if winner based on horizontal 3 in a row. false for no winner
 	*/
 	public static boolean checkHoriz(int[][] grid)
 	{
